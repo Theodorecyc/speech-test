@@ -11,7 +11,7 @@
     <div class="container">
         <h1>🎤 英語發音測試</h1>
         <p>請說出以下單詞：</p>
-        <h2 id="word">hello</h2>
+        <h2 id="word">bat</h2>
 
         <button id="start-btn">🎙️ 開始錄音</button>
         <p id="result">點擊按鈕開始測試</p>
