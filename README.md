@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>英語發音測試</title>
-    <link rel="stylesheet" href="style.css">
+    <title>語音辨識</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: blue;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🎤 英語發音測試</h1>
-        <p>請說出以下單詞：</p>
-        <h2 id="word">bat</h2>
-
-        <button id="start-btn">🎙️ 開始錄音</button>
-        <p id="result">點擊按鈕開始測試</p>
-    </div>
+    <h1>請說出一個英文字</h1>
+    <button onclick="startRecognition()">開始辨識</button>
+    <p id="status">狀態：等待開始</p>
+    <p><strong>辨識結果：</strong> <span id="result">（無）</span></p>
 
     <script src="script.js"></script>
+
 </body>
 </html>
