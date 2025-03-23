@@ -1,46 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英語發音測試</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-.container {
-    max-width: 400px;
-    background: white;
-    padding: 20px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
+    <div class="container">
+        <h1>🎤 英語發音測試</h1>
+        <p>請說出以下單詞：</p>
+        <h2 id="word">hello</h2>
 
-h1 {
-    font-size: 24px;
-}
+        <button id="start-btn">🎙️ 開始錄音</button>
+        <p id="result">點擊按鈕開始測試</p>
+    </div>
 
-h2 {
-    color: #007bff;
-    font-size: 28px;
-}
-
-button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
+    <script src="script.js"></script>
+</body>
+</html>
