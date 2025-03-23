@@ -13,7 +13,7 @@ const resultText = document.getElementById("result");
 const wordDisplay = document.getElementById("word");
 
 // 預設的測試單詞
-const testWord = "hello";
+const testWord = "bat";
 
 startButton.addEventListener("click", () => {
     resultText.textContent = "正在聆聽...";
