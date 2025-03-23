@@ -1,39 +1,33 @@
 // 確保瀏覽器支援 Web Speech API
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
 if (!window.SpeechRecognition) {
-    alert("您的瀏覽器不支援語音辨識，請使用 Chrome");
-}
+    alert("你的瀏覽器不支援 Web Speech API，請使用 Chrome 或 Edge");
+} else {
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US"; // 設定辨識語言為英文
+    recognition.interimResults = false; // 只返回最終結果
+    recognition.maxAlternatives = 1; // 只要最可能的結果
 
-const recognition = new SpeechRecognition();
-recognition.lang = "en-US";
-recognition.interimResults = false;
-
-const startButton = document.getElementById("start-btn");
-const resultText = document.getElementById("result");
-const wordDisplay = document.getElementById("word");
-
-// 預設的測試單詞
-const testWord = "bat";
-
-startButton.addEventListener("click", () => {
-    resultText.textContent = "正在聆聽...";
-    recognition.start();
-});
-
-recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript.toLowerCase().trim();
-    console.log("使用者發音：" + transcript);
-
-    if (transcript === testWord) {
-        resultText.textContent = `✅ 發音正確！ (${transcript})`;
-        resultText.style.color = "green";
-    } else {
-        resultText.textContent = `❌ 發音錯誤：${transcript}，請再試一次`;
-        resultText.style.color = "red";
+    function startRecognition() {
+        document.getElementById("status").textContent = "狀態：正在聆聽...";
+        recognition.start();
     }
-};
 
-recognition.onerror = (event) => {
-    resultText.textContent = "❌ 錯誤：" + event.error;
-    resultText.style.color = "red";
-};
+    recognition.onresult = function (event) {
+        const word = event.results[0][0].transcript; // 取得辨識到的文字
+        document.getElementById("result").textContent = word;
+        document.getElementById("status").textContent = "狀態：辨識完成";
+        console.log("辨識結果:", word);
+    };
+
+    recognition.onerror = function (event) {
+        document.getElementById("status").textContent = "狀態：發生錯誤：" + event.error;
+        console.error("語音辨識錯誤", event);
+    };
+
+    recognition.onspeechend = function () {
+        recognition.stop(); // 停止語音辨識
+        document.getElementById("status").textContent = "狀態：請點擊按鈕再試一次";
+    };
+}
