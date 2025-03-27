@@ -11,7 +11,7 @@
             margin: 50px;
         }
         img {
-            width: 150px; /* 調整 logo 大小 */
+            width: 150px;
             margin-bottom: 20px;
         }
         input {
@@ -31,6 +31,17 @@
             font-size: 24px;
             margin-top: 20px;
             color: blue;
+        }
+        .partner-section {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        .counter {
+            font-size: 20px;
+            margin-top: 20px;
+            color: green;
         }
     </style>
 </head>
@@ -52,6 +63,15 @@
 
     <p id="status">狀態：等待開始</p>
     <p><strong>辨識結果：</strong> <span id="result">（無）</span></p>
+
+    <!-- 訪問計數器 -->
+    <p class="counter">瀏覽次數：<span id="visitCount">0</span></p>
+
+    <!-- 中國大陸地區合作夥伴 -->
+    <div class="partner-section">
+        <h2>中國大陸地區合作夥伴</h2>
+        <img src="partner.png" alt="合作夥伴 Logo">
+    </div>
 
     <script src="script.js"></script>
 
